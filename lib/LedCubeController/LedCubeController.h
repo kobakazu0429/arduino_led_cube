@@ -1,0 +1,34 @@
+#ifndef LedCubeController_h
+#define LedCubeController_h
+#include <Arduino.h>
+
+class LedCubeController {
+public:
+  LedCubeController();
+  void clear();
+  void all();
+  void each();
+  void frame();
+  void rand();
+  void curtain();
+  void upDown();
+  void sendSerialData(uint16_t);
+
+  uint16_t patterns[3][9] = {
+      {0b1000000001100000, 0b0100000001100000, 0b0010000001100000,
+       0b0001000001100000, 0b0000100001100000, 0b0000010001100000,
+       0b0000001001100000, 0b0000000101100000, 0b0000000011100000},
+      {0b1000000001010000, 0b0100000001010000, 0b0010000001010000,
+       0b0001000001010000, 0b0000100001010000, 0b0000010001010000,
+       0b0000001001010000, 0b0000000101010000, 0b0000000011010000},
+      {0b1000000000110000, 0b0100000000110000, 0b0010000000110000,
+       0b0001000000110000, 0b0000100000110000, 0b0000010000110000,
+       0b0000001000110000, 0b0000000100110000, 0b0000000010110000}};
+
+protected:
+  static const int SRCLK = 5;
+  static const int RCLK = 6;
+  static const int SER = 7;
+};
+
+#endif
